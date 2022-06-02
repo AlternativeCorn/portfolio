@@ -1,0 +1,15 @@
+
+@mixin elevation($elevation) {
+
+    $xy: $elevation*8px;
+    $blur: $elevation*32px;
+    $opacity: (0.2 - ($elevation * .025));
+    
+    $color: rgba(0,0, 0,$opacity);
+
+    box-shadow: $xy $xy $blur $color;
+}
+
+@mixin thickletters($color) {
+    text-shadow: #000 -1px -1px 0px, $color 1px 1px 0px, $color 2px 2px 0px, $color 3px 3px 0px,#000 4px 4px 0px;
+}

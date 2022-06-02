@@ -1,0 +1,94 @@
+@import 'mixins.scss';
+
+.container {
+    overflow: hidden; //Fixes margin border collapse issues
+    background-color: #fff;
+    background-image: url('/img/cornerwave1.svg'), url('/img/cornerwave3.svg');;
+    background-position: top right, bottom left;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+
+    .hero {
+        h1,h2 {
+            margin: 0px;
+            position: relative;
+            transform-origin: left center;
+            transform: skewY(-15deg);
+        }
+        h1 {
+            margin-top: 140px;
+            margin-left: 50px;
+            color: var(--color-primary);
+            font-size: 10em;
+            @include thickletters(var(--color-primary));
+            span.name {
+                color: var(--color-secondary);
+                @include thickletters(var(--color-secondary));
+            }
+        }
+        h2 {
+            margin-left: 50px;
+            color: var(--color-secondary);
+            font-size: 4em;
+            @include thickletters(var(--color-secondary));
+            span.things {
+                color: var(--color-primary);
+                @include thickletters(var(--color-primary));
+            }
+        }
+    }
+
+    .contactbutton {
+        margin: 10px auto;
+        display: block;
+        max-width: 300px;
+        text-align: center;
+        cursor: pointer;
+        padding: 15px;
+        font-size: 2em;
+        border-radius: 5px;
+        background-color: var(--color-primary);
+        user-select: none;
+    }
+
+    .projects {
+        margin: 10px auto;
+        max-width: 600px;
+        width: 100%;
+        display: flex;
+        .project {
+            margin: 20px;
+            img {
+                max-height: 200px;
+                border-radius: 5px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .container { 
+        background-size: 12rem;
+        .hero {
+            h1 {
+                margin-left: 10px;
+                margin-top: 100px;
+                font-size: 6em;
+            }
+            h2 {
+                margin-left: 10px;
+                font-size: 3em;
+                
+            }
+        }
+        .projects {
+            flex-direction: column;
+            .project {
+                img {
+                    max-width: 100%;
+                    max-height: unset;
+                }
+            }
+        }
+    }
+}

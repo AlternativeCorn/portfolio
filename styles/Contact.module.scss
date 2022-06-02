@@ -1,0 +1,64 @@
+@import './mixins.scss';
+
+.contact {
+    min-height: 100vh;
+    background-image: url('/img/cornerwave3.svg');
+    background-position: bottom left;
+    background-repeat: no-repeat;
+    background-size: 45em;
+    padding-top: 5rem;
+    .contact_inner {
+        margin: auto;
+        max-width: 920px;
+        width: 100%;
+        .card {
+            background-color: #fff;
+            background-image: url('/img/cornerwave1.svg');
+            background-position: top right;
+            background-repeat: no-repeat;
+            background-size: 10em;
+            padding: 1rem;
+            border-radius: 5px;
+            font-size: 1.3em;
+            padding-bottom: 15rem;
+
+            @include elevation(.3);
+            h1 {
+                margin: 1rem auto;
+                margin-top: 0rem;
+                margin-left: 5rem;
+                font-size: 3.0em;
+            }
+            p {
+                margin: 1rem auto;
+                max-width: calc(100% - 10rem);
+            }
+            form {
+                margin-top: 2rem;
+                margin-left: 5rem;
+                max-width: 450px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .contact {
+        padding-top: 0rem;
+        .contact_inner {
+
+            .card {
+                h1 {
+                    text-align: center;
+                    margin: 10px auto;
+                }
+                p {
+                    max-width: 100%;
+                }
+                form {
+                    margin-left: 0rem;
+                }
+            }
+        }
+    }
+}

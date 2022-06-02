@@ -9,12 +9,20 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "axios": "^0.27.2",
+    "express-rate-limit": "^6.4.0",
+    "joi": "^17.6.0",
     "next": "12.1.6",
+    "nodemailer": "^6.7.5",
     "react": "18.1.0",
-    "react-dom": "18.1.0"
+    "react-dom": "18.1.0",
+    "react-google-recaptcha": "^2.1.0",
+    "react-textarea-autosize": "^8.3.4",
+    "sass": "^1.52.1"
   },
   "devDependencies": {
     "@types/node": "17.0.36",
+    "@types/nodemailer": "^6.4.4",
     "@types/react": "18.0.9",
     "@types/react-dom": "18.0.5",
     "eslint": "8.16.0",
