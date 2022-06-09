@@ -67,7 +67,7 @@ const ResponseEmailBody = (text: string) => {
 async function SendContactMail(email: string, name: string, message: string) {
   return await (await MailSingletons.Transporter).sendMail({
     from: `"${name}" <${email}>`,
-    to: process.env.PERSONAL_EMAIL_ADDRESS,
+    to: process.env.FORWARD_EMAIL_ADDRESS,
     subject: "New Contact Form Entry",
     text: message,
     html: ContactEmailBody(message, name)
