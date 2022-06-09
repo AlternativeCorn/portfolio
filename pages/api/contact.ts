@@ -42,7 +42,7 @@ class MailSingletons {
 //Generates the contact HTML Email body
 const ContactEmailBody = (text: string, senderName: string) => {
   return `
-  <body style="background-color: #eaeaea; color: #000;">
+  <body style="color: #000;">
     <div style="margin: 10px auto;padding: 10px;background-color: #ffffff;border-radius: 5px;width:100%;max-width: 520px;">
       <h2>Message from ${senderName}</h2>
       <p>${text}</p>
@@ -53,7 +53,7 @@ const ContactEmailBody = (text: string, senderName: string) => {
 //Generates the response HTML Email body
 const ResponseEmailBody = (text: string) => {
   return `
-  <body style="background-color: #eaeaea; color: #000;">
+  <body style="color: #000;">
     <div style="margin: 10px auto;padding: 10px;background-color: #ffffff;border-radius: 5px;width:100%;max-width: 520px;">
       <h2>Contact Confirmation</h2>
       <p>We're sending this email to confirm we've successfully received your contact form submission!<br />We'll try to get back to you as soon as possible!</p>
@@ -66,9 +66,9 @@ const ResponseEmailBody = (text: string) => {
 //Sends the contact submission to our E-Mail account
 async function SendContactMail(email: string, name: string, message: string) {
   return await (await MailSingletons.Transporter).sendMail({
-    from: `"${name}" <${email}>`,
+    from: `"${name}" <contact@miaisadeveloper.com>`,
     to: process.env.FORWARD_EMAIL_ADDRESS,
-    subject: "New Contact Form Entry",
+    subject: `New Contact Form Entry from (${name}, ${email})`,
     text: message,
     html: ContactEmailBody(message, name)
   });
@@ -99,7 +99,6 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<ResultData>
 ) {
-
   //RateLimit The Request
   await runMiddleware(req, res, limiter);
 
